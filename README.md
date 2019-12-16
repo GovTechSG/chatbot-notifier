@@ -8,12 +8,16 @@ chatbot-notifier aims to make sending notification to telegram chat group in a s
 notifier send -f credential.yml -m message.txt <br/>
 notifier encrypt -f credential.yml
 
-## credential.yml format (SAMPLE NOT REAL INFOR)
+## credential.yml format (SAMPLE NOT REAL INFOR) (File can be other name)
 
-```
+```go
 aws:
 - arn: arn:aws:kms:ap-southeast-1:XXXXXXXXXX:key/XXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX
 telegram:
 - token: 2312312312:DASDASGSDFDSFADSA
   chatid: -32213123123
 ```
+
+## message.yml (File can be other name)
+
+Any free text file.
