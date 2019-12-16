@@ -18,6 +18,6 @@ telegram:
   chatid: -32213123123
 ```
 
-## message.yml (File can be other name)
+## message.txt (File can be other name)
 
 Any free text file.
