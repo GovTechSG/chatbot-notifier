@@ -30,11 +30,20 @@ notifier will then be able to send message using credential.yml. <br/>
 ## Usage Example
 
 ### Encrypt credential.yml
+
 notifier encrypt -f credential.yml <br/>
 
+or <br/>
+
+AWS_PROFILE=PROFILE1 notifier encrypt -f credential.yml <br/>
+
 ### Message can only be send after encryption
+
 notifier send -f credential.yml -m message.txt <br/>
 
+or <br/>
+
+AWS_PROFILE=PROFILE2 notifier send -f credential.yml -m message.txt <br/>
 
 ## credential.yml format (SAMPLE NOT REAL INFOR) (File can be other name)
 
