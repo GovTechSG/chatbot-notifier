@@ -29,10 +29,10 @@ notifier will then be able to send message using credential.yml. <br/>
 
 ## Usage Example
 
-Encrypt credential.yml <br/>
+### Encrypt credential.yml
 notifier encrypt -f credential.yml <br/>
 
-Message can only be send after encryption <br/>
+### Message can only be send after encryption
 notifier send -f credential.yml -m message.txt <br/>
 
 
