@@ -21,11 +21,11 @@ source_profile = default
 role_session_name = OPTIONAL_SESSION_NAME
 ```
 
-For more information, see <https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials_profiles.html>
+For more information, see <https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials_profiles.html> 
 
-notifier will then get key from AWS KMS to encrypt credential.yml. ENCRYPTED credential.yml WILL NOT BE ABLE TO DECRYPT THROUGH notifier. THIS IS TO ENSURE THAT TOKEN AND CHAT ID ARE SAFE IN THE SERVER.
+notifier will then get key from AWS KMS to encrypt credential.yml. ENCRYPTED credential.yml WILL NOT BE ABLE TO DECRYPT THROUGH notifier. THIS IS TO ENSURE THAT TOKEN AND CHAT ID ARE SAFE IN THE SERVER. <br/>
 
-notifier will then be able to send message using credential.yml.
+notifier will then be able to send message using credential.yml. <br/>
 
 ## Usage Example
 
