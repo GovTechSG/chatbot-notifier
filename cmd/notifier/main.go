@@ -9,9 +9,9 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/alvinsiew/telegram-go/internal/awskms"
-	"github.com/alvinsiew/telegram-go/internal/telegram"
-	"github.com/alvinsiew/telegram-go/internal/yamlcustom"
+	"github.com/GovTechSG/chatbot-notifier/internal/awskms"
+	"github.com/GovTechSG/chatbot-notifier/internal/telegram"
+	"github.com/GovTechSG/chatbot-notifier/internal/yamlcustom"
 	"gopkg.in/yaml.v2"
 )
 

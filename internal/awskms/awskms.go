@@ -59,6 +59,7 @@ func ReadAwsCred(arn string, m string) string {
 	return s
 }
 
+// DecryptAwsCred decrypt aws credential
 func DecryptAwsCred(arn string, m string) string {
 
 	s := StringToBytes(m)
