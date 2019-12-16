@@ -10,8 +10,10 @@ notifier encrypt -f credential.yml
 
 ## credential.yml format (SAMPLE NOT REAL INFOR)
 
+```
 aws:
 - arn: arn:aws:kms:ap-southeast-1:XXXXXXXXXX:key/XXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX
 telegram:
 - token: 2312312312:DASDASGSDFDSFADSA
   chatid: -32213123123
+```
