@@ -31,14 +31,17 @@ notifier will then be able to send message using credential.yml. <br/>
 
 ### Encrypt credential.yml
 
+```bash
 notifier encrypt -f credential.yml <br/>
 
 or <br/>
 
 AWS_PROFILE=PROFILE1 notifier encrypt -f credential.yml <br/>
+```
 
 ### Message can only be send after encryption
 
+```bash
 notifier send -f credential.yml -m message.txt <br/>
 
 or <br/>
@@ -46,8 +49,13 @@ or <br/>
 AWS_PROFILE=PROFILE2 notifier send -f credential.yml -m message.txt <br/>
 
 ## credential.yml format (SAMPLE NOT REAL INFOR) (File can be other name)
+```
 
-```go
+For more information on how to get token, see <https://core.telegram.org/bots#6-botfather>
+To get your chat id, update the URL with your bot token <https://api.telegram.org/bot< token >/getUpdates>
+
+
+```yaml
 aws:
 - arn: arn:aws:kms:ap-southeast-1:XXXXXXXXXX:key/XXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX
 telegram:
