@@ -5,9 +5,9 @@ chatbot-notifier aims to make sending notification to telegram chat group in an 
 
 ## How it works
 
-chatbot-notifier uses aws-sdk-go to implement the encryption and decryption operation. Thus you will require an amazon web services access key id and secret access key. Similar to using terraform or terragrunt, AWS_PROFILE have to be pass in the command line. Example will be "AWS_PROFILE=<PROFILE NAME> notifier send -f credential.yml -m textfile.txt". This profile read from <HOME>/.aws/credentials. If the access key id and secret access key are set as default profile in <HOME>/.aws/credentials, then AWS_PROFILE will not need to be pass. Example "notifier send -f credential.yml -m textfile.txt".
+chatbot-notifier uses aws-sdk-go to implement the encryption and decryption operation. Thus you will require an amazon web services access key id and secret access key. Similar to using terraform or terragrunt, AWS_PROFILE have to be pass in the command line. Example will be "AWS_PROFILE=<PROFILE NAME> notifier send -f credential.yml -m textfile.txt". This profile read from ~/.aws/credentials. If the access key id and secret access key are set as default profile in ~/.aws/credentials, then AWS_PROFILE will not need to be pass. Example "notifier send -f credential.yml -m textfile.txt".
 
-Example of <HOME>/.aws/credential
+Example of ~/.aws/credential
 
 ```aws
 [default]
@@ -32,21 +32,21 @@ notifier will then be able to send message using credential.yml. <br/>
 ### Encrypt credential.yml
 
 ```bash
-notifier encrypt -f credential.yml <br/>
+notifier encrypt -f credential.yml
 
-or <br/>
+or
 
-AWS_PROFILE=PROFILE1 notifier encrypt -f credential.yml <br/>
+AWS_PROFILE=PROFILE1 notifier encrypt -f credential.yml
 ```
 
 ### Message can only be send after encryption
 
 ```bash
-notifier send -f credential.yml -m message.txt <br/>
+notifier send -f credential.yml -m message.txt
 
-or <br/>
+or
 
-AWS_PROFILE=PROFILE2 notifier send -f credential.yml -m message.txt <br/>
+AWS_PROFILE=PROFILE2 notifier send -f credential.yml -m message.txt
 
 ## credential.yml format (SAMPLE NOT REAL INFOR) (File can be other name)
 ```
