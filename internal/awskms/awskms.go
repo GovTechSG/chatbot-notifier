@@ -38,8 +38,6 @@ func ReadAwsCred(arn string, m string) string {
 	// Replace the fictitious key ARN with a valid key ID
 	keyID := arn
 
-	// text := "1234567890"
-
 	// Encrypt the data
 	result, err := svc.Encrypt(&kms.EncryptInput{
 		KeyId:     aws.String(keyID),
@@ -51,11 +49,8 @@ func ReadAwsCred(arn string, m string) string {
 		os.Exit(1)
 	}
 
-    s := BytesToString(result.CiphertextBlob)
-    // fmt.Println(s)
-	// fmt.Println("Blob (base-64 byte array):")
-	// fmt.Println(result.CiphertextBlob)
-
+	s := BytesToString(result.CiphertextBlob)
+	
 	return s
 }
 
@@ -71,9 +66,6 @@ func DecryptAwsCred(arn string, m string) string {
 
     // Create KMS service client
     svc := kms.New(sess)
-
-    // Encrypted data
-    // blob := []byte("1234567890")
 
     // Decrypt the data
     result, err := svc.Decrypt(&kms.DecryptInput{CiphertextBlob: s})

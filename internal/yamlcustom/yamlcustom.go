@@ -49,7 +49,6 @@ func ParseYAML(fileName string) Config {
 
 	err = yaml.Unmarshal(yamlFile, &config)
 	if err != nil {
-		// log.Fatal("Yaml already encrypted")
 		panic(err)
 	}
 
@@ -69,7 +68,6 @@ func ParseEncyptYAML(fileName string) EncryptConfig {
 
 	err = yaml.Unmarshal(yamlFile, &config)
 	if err != nil {
-		// log.Fatal("Yaml already encrypted")
 		panic(err)
 	}
 
@@ -78,7 +76,7 @@ func ParseEncyptYAML(fileName string) EncryptConfig {
 
 // EditYAML Modify value to config to encryption
 func EditYAML(a string, t string, c string) EncryptConfig {
-	tff := EncryptConfig{
+	ec := EncryptConfig{
 		Aws: []ConfigAWS{
 			ConfigAWS{
 				Arn: a,
@@ -91,73 +89,5 @@ func EditYAML(a string, t string, c string) EncryptConfig {
 			},
 		},
 	}
-	// fmt.Printf("%+v", tff)
-	return tff
+	return ec
 }
-
-// // EditYAML Modify value to config to encryption
-// func EditYAML(a string) Config {
-// 	tff := Config{
-// 		Aws: []ConfigAWS{
-// 			ConfigAWS{
-// 				Arn: a,
-// 			},
-// 		},
-// 		Telegram: []ConfigTelegram{
-// 			ConfigTelegram{
-// 				Token:  "1058949406:AAEdGEVVitmvD9KWJhp1Iz1Z7rGrO3c9fR4",
-// 				ChatID: -219357966,
-// 			},
-// 		},
-// 	}
-
-// 	log.SetFlags(log.Lshortfile)
-
-// 	// data, err := ioutil.ReadFile("regexes.yaml")
-// 	// if err != nil {
-// 	// 	log.Fatalln(err)
-// 	// }
-
-// 	// var v interface{}
-
-// 	// d, err := yaml.Marshal(&tff)
-// 	// if err != nil {
-// 	// 	log.Fatalf("error: %v", err)
-// 	// }
-
-// 	// err = yaml.Unmarshal(d, &v)
-// 	// if err != nil {
-// 	// 	log.Fatalln(err)
-// 	// }
-
-// 	// // m := make(map[interface{}]interface{})
-
-// 	// // err = yaml.Unmarshal([]byte(d), &m)
-// 	// // if err != nil {
-// 	// // 	log.Fatalf("error: %v", err)
-// 	// // }
-// 	// // // fmt.Printf("--- m:\n%v\n\n", m)
-
-// 	// // d, err = yaml.Marshal(&m)
-// 	// // if err != nil {
-// 	// // 	log.Fatalf("error: %v", err)
-// 	// // }
-// 	// // fmt.Printf("--- m dump:\n%s\n\n", string(d))
-
-// 	// f, err := os.Create("regexes.yaml.go")
-// 	// if err != nil {
-// 	// 	log.Fatalln(err)
-// 	// }
-// 	// defer func() {
-// 	// 	err := f.Close()
-// 	// 	if err != nil {
-// 	// 		log.Fatalln(err)
-// 	// 	}
-// 	// }()
-
-// 	// fmt.Fprintf(f, "package main\n\n")
-// 	// fmt.Fprintf(f, "var regexes = %#v\n", v)
-// 	// fmt.Printf("%+v", tff)
-// 	return tff
-
-// }
