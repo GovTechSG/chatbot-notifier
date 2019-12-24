@@ -79,3 +79,18 @@ telegram:
 ## message.txt (File can be other name)
 
 Any free text file.
+
+### Self-compile
+
+```bash
+git clone https://github.com/alvinsiew/gossh.git
+
+# MacOS
+env GOOS=darwin GOARCH=amd64 go build -o notifier cmd/notifier/main.go
+
+# Linux
+env GOOS=linux GOARCH=amd64 go build -o notifier cmd/notifier/main.go
+
+# Window
+env GOOS=windows GOARCH=amd64 go build -o notifier cmd/notifier/main.go
+```
