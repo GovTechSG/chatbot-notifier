@@ -15,7 +15,7 @@ role_arn = arn:aws:iam::123456789012:role/testing
 source_profile = default
 role_session_name = OPTIONAL_SESSION_NAME
 
-[profile project1]
+[profile_project1]
 role_arn = arn:aws:iam::123456789012:role/testing
 source_profile = default
 role_session_name = OPTIONAL_SESSION_NAME
@@ -36,24 +36,37 @@ notifier encrypt -f credential.yml
 
 or
 
-AWS_PROFILE=PROFILE1 notifier encrypt -f credential.yml
+AWS_PROFILE=profile_project1 notifier encrypt -f credential.yml
 ```
 
 ### Message can only be send after encryption
+
+Sending message file content to chat group
 
 ```bash
 notifier send -f credential.yml -m message.txt
 
 or
 
-AWS_PROFILE=PROFILE2 notifier send -f credential.yml -m message.txt
+AWS_PROFILE=profile_project1 notifier send -f credential.yml -m message.txt
+
+```
+
+Sending text message to chat group
+
+```bash
+notifier text -f credential.yml -m "Hello World"
+
+or
+
+AWS_PROFILE=profile_project1 notifier text -f credential.yml -m "Hello World"
+
+```
 
 ## credential.yml format (SAMPLE NOT REAL INFOR) (File can be other name)
-```
 
 For more information on how to get token, see <https://core.telegram.org/bots#6-botfather>
 To get your chat id, update the URL with your bot token <https://api.telegram.org/bot< token >/getUpdates>
-
 
 ```yaml
 aws:
