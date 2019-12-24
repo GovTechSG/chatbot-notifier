@@ -41,7 +41,19 @@ func SendCommand() *Command {
 	}
 
 	gc.fs.StringVar(&gc.name, "f", "", "File to be decrypt and get credential")
-	gc.fs.StringVar(&gc.subName, "m", "hello", "file message that need to be send")
+	gc.fs.StringVar(&gc.subName, "m", "", "file message that need to be send")
+
+	return gc
+}
+
+// TextCommand Contain flag command for sending text
+func TextCommand() *Command {
+	gc := &Command{
+		fs: flag.NewFlagSet("text", flag.ContinueOnError),
+	}
+
+	gc.fs.StringVar(&gc.name, "f", "", "File to be decrypt and get credential")
+	gc.fs.StringVar(&gc.subName, "m", "", "text message that need to be send")
 
 	return gc
 }
@@ -61,10 +73,11 @@ func (g *Command) Crypto() {
 
 	if g.Name() == "encrypt" {
 		Encrypt(g)
-	}
-
-	if g.Name() == "send" {
-		Decrypt(g)
+	} else if g.Name() == "send" {
+		t := g.ReadFile()
+		Decrypt(g, t)
+	} else if g.Name() == "text" {
+		Decrypt(g, g.subName)
 	}
 }
 
@@ -74,7 +87,7 @@ func SendMessage(t string, c int64, m string) {
 }
 
 // Decrypt will trigger decryption of yaml file
-func Decrypt(g *Command) {
+func Decrypt(g *Command, tx string) {
 	output := yamlcustom.ParseEncyptYAML(g.name)
 	t := output.Telegram[0].Token
 	c := output.Telegram[0].ChatID
@@ -88,15 +101,18 @@ func Decrypt(g *Command) {
 		panic(err)
 	}
 
+	SendMessage(tk, sci, tx)
+}
+
+//ReadFile to read content of file message
+func (g *Command) ReadFile() string {
+	// Read message file content
 	content, err := ioutil.ReadFile(g.subName)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Convert []byte to string and print to screen
-	text := string(content)
-
-	SendMessage(tk, sci, text)
+	return string(content)
 }
 
 // Encrypt will trigger encryption of yaml file
@@ -145,6 +161,7 @@ func Root(args []string) error {
 	cmds := []Runner{
 		EncryptCommand(),
 		SendCommand(),
+		TextCommand(),
 	}
 
 	subcommand := os.Args[1]
