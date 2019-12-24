@@ -83,7 +83,7 @@ Any free text file.
 ### Self-compile
 
 ```bash
-git clone https://github.com/alvinsiew/gossh.git
+git clone https://github.com/GovTechSG/chatbot-notifier.git
 
 # MacOS
 env GOOS=darwin GOARCH=amd64 go build -o notifier cmd/notifier/main.go
